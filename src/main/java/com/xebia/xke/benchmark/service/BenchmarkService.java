@@ -18,7 +18,7 @@ public class BenchmarkService {
     @Inject
     public BenchmarkService(GraphDatabaseService databaseService) {
         this.databaseService = databaseService;
-        idIndex = databaseService.index().forNodes("id");
+        idIndex = databaseService.index().forNodes("NodeIdIndex");
     }
 
     public SimpleFlut getFlut(BigInteger id) {

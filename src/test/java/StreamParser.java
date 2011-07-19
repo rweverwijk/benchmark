@@ -1,15 +1,11 @@
-import com.xebia.xke.benchmark.model.SimpleFlut;
-import com.xebia.xke.benchmark.service.BenchmarkService;
 import org.neo4j.graphdb.index.BatchInserterIndex;
 import org.neo4j.index.impl.lucene.LuceneBatchInserterIndexProvider;
-import org.neo4j.kernel.EmbeddedGraphDatabase;
 import org.neo4j.kernel.impl.batchinsert.BatchInserterImpl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.StringTokenizer;
 
@@ -45,6 +41,8 @@ public class StreamParser {
                 System.out.println("number of rows: " + rows);
             }
         }
+        batchInserter.shutdown();
+        luceneBatchInserterIndexProvider.shutdown();
     }
 
     private static HashMap<String, Object> createHashMap(Long intNumber, boolean trueOrFalse, String longStringAttribute, Long id, String shortStringAttribute) {
