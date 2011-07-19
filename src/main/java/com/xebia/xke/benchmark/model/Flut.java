@@ -1,42 +1,53 @@
 package com.xebia.xke.benchmark.model;
 
+import org.neo4j.graphdb.Node;
+
 import java.math.BigInteger;
 
-public class Flut {
-    private BigInteger id;
-    private String shortStringAttribute;
-    private String longStringAttribute;
-    private BigInteger intNumber;
-    private boolean trueOrFalse;
+public class Flut extends DelegatingNodeObject{
 
-    public Flut() {
-    }
 
-    public Flut(BigInteger id, String shortStringAttribute, String longStringAttribute, BigInteger intNumber, boolean trueOrFalse) {
-        this.id = id;
-        this.shortStringAttribute = shortStringAttribute;
-        this.longStringAttribute = longStringAttribute;
-        this.intNumber = intNumber;
-        this.trueOrFalse = trueOrFalse;
+    public Flut(Node flut) {
+        super(flut);
     }
 
     public BigInteger getId() {
-        return id;
+        return (BigInteger) getNode().getProperty("id");
+    }
+
+    public void setId(BigInteger id) {
+        getNode().setProperty("id", id);
     }
 
     public String getShortStringAttribute() {
-        return shortStringAttribute;
+        return (String) getNode().getProperty("shortString");
+    }
+
+    public void setShortStringAttribute(String shortStringAttribute) {
+        getNode().setProperty("shortString", shortStringAttribute);
     }
 
     public String getLongStringAttribute() {
-        return longStringAttribute;
+        return (String) getNode().getProperty("longString");
+    }
+
+    public void setLongStringAttribute(String longStringAttribute) {
+        getNode().setProperty("longString", longStringAttribute);
     }
 
     public BigInteger getIntNumber() {
-        return intNumber;
+        return (BigInteger) getNode().getProperty("intNumber");
+    }
+
+    public void setIntNumber(BigInteger intNumber) {
+        getNode().setProperty("intNumber", intNumber);
     }
 
     public boolean isTrueOrFalse() {
-        return trueOrFalse;
+        return (Boolean)getNode().getProperty("trueOrFalse");
+    }
+
+    public void setTrueOrFalse(boolean trueOrFalse) {
+        getNode().setProperty("trueOrFalse", trueOrFalse);
     }
 }
