@@ -1,7 +1,8 @@
 package com.xebia.xke.benchmark.model;
 
-import java.math.BigInteger;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 public class SimpleFlut {
     private Long id;
     private String shortStringAttribute;
