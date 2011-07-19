@@ -3,16 +3,16 @@ package com.xebia.xke.benchmark.model;
 import java.math.BigInteger;
 
 public class SimpleFlut {
-    private BigInteger id;
+    private Long id;
     private String shortStringAttribute;
     private String longStringAttribute;
-    private BigInteger intNumber;
+    private Long intNumber;
     private boolean trueOrFalse;
 
     public SimpleFlut() {
     }
 
-    public SimpleFlut(BigInteger id, String shortStringAttribute, String longStringAttribute, BigInteger intNumber, boolean trueOrFalse) {
+    public SimpleFlut(Long id, String shortStringAttribute, String longStringAttribute, Long intNumber, boolean trueOrFalse) {
         this.id = id;
         this.shortStringAttribute = shortStringAttribute;
         this.longStringAttribute = longStringAttribute;
@@ -28,7 +28,7 @@ public class SimpleFlut {
         this.trueOrFalse = flut.isTrueOrFalse();
     }
 
-    public BigInteger getId() {
+    public Long getId() {
         return id;
     }
 
@@ -40,7 +40,7 @@ public class SimpleFlut {
         return longStringAttribute;
     }
 
-    public BigInteger getIntNumber() {
+    public Long getIntNumber() {
         return intNumber;
     }
 

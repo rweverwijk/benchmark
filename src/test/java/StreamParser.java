@@ -21,13 +21,12 @@ public class StreamParser {
         while ((line = reader.readLine()) != null) {
             StringTokenizer tokenizer = new StringTokenizer(line.substring(1, line.length() - 1), ",");
             if (tokenizer.countTokens() == 5) {
-                BigInteger intNumber = new BigInteger(getTokenValue(tokenizer.nextToken()));
+                Long intNumber = new Long(getTokenValue(tokenizer.nextToken()));
                 boolean trueOrFalse = getTokenValue(tokenizer.nextToken()).equals("true") ? true : false;
                 String longStringAttribute = getTokenValue(tokenizer.nextToken());
-                BigInteger id = new BigInteger(getTokenValue(tokenizer.nextToken()));
+                Long id = new Long(getTokenValue(tokenizer.nextToken()));
                 String shortStringAttribute = getTokenValue(tokenizer.nextToken());
                 SimpleFlut simpleFlut = new SimpleFlut(id, shortStringAttribute, longStringAttribute, intNumber, trueOrFalse);
-                System.out.println(simpleFlut);
                 service.saveFlut(simpleFlut);
             }
         }

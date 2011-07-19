@@ -19,11 +19,11 @@ public class Flut extends DelegatingNodeObject {
         setTrueOrFalse(simpleFlut.isTrueOrFalse());
     }
 
-    public BigInteger getId() {
-        return (BigInteger) getNode().getProperty("id");
+    public Long getId() {
+        return (Long) getNode().getProperty("id");
     }
 
-    public void setId(BigInteger id) {
+    public void setId(Long id) {
         getNode().setProperty("id", id);
     }
 
@@ -43,11 +43,11 @@ public class Flut extends DelegatingNodeObject {
         getNode().setProperty("longString", longStringAttribute);
     }
 
-    public BigInteger getIntNumber() {
-        return (BigInteger) getNode().getProperty("intNumber");
+    public Long getIntNumber() {
+        return (Long) getNode().getProperty("intNumber");
     }
 
-    public void setIntNumber(BigInteger intNumber) {
+    public void setIntNumber(Long intNumber) {
         getNode().setProperty("intNumber", intNumber);
     }
 
