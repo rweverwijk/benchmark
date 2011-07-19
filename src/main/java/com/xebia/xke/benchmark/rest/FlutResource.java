@@ -10,13 +10,13 @@ import javax.ws.rs.core.MediaType;
 import java.math.BigInteger;
 
 @Singleton
-@Path("/get")
+@Path("/")
 public class FlutResource {
 
     @Inject
     private BenchmarkService service;
 
-    @Path("/{id}")
+    @Path("get/{id}")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public SimpleFlut get(@PathParam("id") BigInteger id) {
@@ -27,9 +27,10 @@ public class FlutResource {
         return flut;
     }
 
+    @Path("put/{id}")
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    public void create(SimpleFlut flut) {
+    public void create(@PathParam("id") BigInteger id, SimpleFlut flut) {
         service.saveFlut(flut);
     }
 

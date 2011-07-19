@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Neo4J - Jersey - Guice - Benchmark</title>
+    <script src="http://code.jquery.com/jquery-1.4.4.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="script/benchmark.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+<div id="main">
+    <h3 id="title">Insert</h3>
+
+    <form action="rest/put" id="put" method="post" style="padding:10px;">
+        <label for="id">Id:</label>
+        <input type="text" name="id" id="id"><br/>
+
+        <label for="shortStringAttribute">ShortStringAttribute:</label>
+        <input type="text" name="shortStringAttribute" id="shortStringAttribute"><br/>
+
+        <label for="longStringAttribute">LongStringAttribute:</label>
+        <input type="text" name="longStringAttribute" id="longStringAttribute"><br/>
+
+        <label for="intNumber">IntNumber:</label>
+        <input type="text" name="intNumber" id="intNumber"><br/>
+
+        <label for="trueOrFalse">TrueOrFalse:</label>
+        <input type="text" name="trueOrFalse" id="trueOrFalse"><br/>
+
+        <p><input value="Insert" type="submit" id="submit" style="color:#800080; text-align:right;"></p>
+    </form>
+</div>
+</body>
+<script type="text/javascript">
+    $(document).ready(function($) {
+        bindPutForm();
+    });
+</script>
+</html>
