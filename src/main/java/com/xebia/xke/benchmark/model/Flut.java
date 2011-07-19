@@ -4,8 +4,7 @@ import org.neo4j.graphdb.Node;
 
 import java.math.BigInteger;
 
-public class Flut extends DelegatingNodeObject{
-
+public class Flut extends DelegatingNodeObject {
 
     public Flut(Node flut) {
         super(flut);
@@ -53,7 +52,7 @@ public class Flut extends DelegatingNodeObject{
     }
 
     public boolean isTrueOrFalse() {
-        return (Boolean)getNode().getProperty("trueOrFalse");
+        return (Boolean) getNode().getProperty("trueOrFalse");
     }
 
     public void setTrueOrFalse(boolean trueOrFalse) {

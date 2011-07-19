@@ -20,6 +20,14 @@ public class SimpleFlut {
         this.trueOrFalse = trueOrFalse;
     }
 
+    public SimpleFlut(Flut flut) {
+        this.id = flut.getId();
+        this.shortStringAttribute = flut.getShortStringAttribute();
+        this.longStringAttribute = flut.getLongStringAttribute();
+        this.intNumber = flut.getIntNumber();
+        this.trueOrFalse = flut.isTrueOrFalse();
+    }
+
     public BigInteger getId() {
         return id;
     }
