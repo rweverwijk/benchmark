@@ -18,7 +18,9 @@ public class StreamParser {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
         String line = null;
+        int rows = 0;
         while ((line = reader.readLine()) != null) {
+            rows++;
             StringTokenizer tokenizer = new StringTokenizer(line.substring(1, line.length() - 1), ",");
             if (tokenizer.countTokens() == 5) {
                 Long intNumber = new Long(getTokenValue(tokenizer.nextToken()));
@@ -28,6 +30,9 @@ public class StreamParser {
                 String shortStringAttribute = getTokenValue(tokenizer.nextToken());
                 SimpleFlut simpleFlut = new SimpleFlut(id, shortStringAttribute, longStringAttribute, intNumber, trueOrFalse);
                 service.saveFlut(simpleFlut);
+            }
+            if (rows % 1000 == 0) {
+                System.out.println("number of rows: " + rows);
             }
         }
     }
