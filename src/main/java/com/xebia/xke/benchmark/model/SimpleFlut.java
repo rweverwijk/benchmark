@@ -1,10 +1,14 @@
 package com.xebia.xke.benchmark.model;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
+@XmlAccessorType(value = XmlAccessType.FIELD)
 public class SimpleFlut {
     private Long id;
+
     private String shortStringAttribute;
     private String longStringAttribute;
     private Long intNumber;
