@@ -22,14 +22,14 @@ public class BenchmarkService {
     }
 
     public SimpleFlut getFlut(BigInteger id) {
-        Node node = idIndex.get("id", id).getSingle();
+        Node node = idIndex.get("id", id).next();
         return node != null ? new SimpleFlut(new Flut(node)) : null;
     }
 
     public void saveFlut(SimpleFlut flut) {
         Transaction transaction = databaseService.beginTx();
         try {
-            Node node = idIndex.get("id", flut.getId()).getSingle();
+            Node node = idIndex.get("id", flut.getId()).next();
             if (node == null) {
                 node = databaseService.createNode();
             }
