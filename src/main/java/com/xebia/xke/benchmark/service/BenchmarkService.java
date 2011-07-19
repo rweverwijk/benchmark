@@ -2,6 +2,7 @@ package com.xebia.xke.benchmark.service;
 
 
 import com.xebia.xke.benchmark.model.Flut;
+import com.xebia.xke.benchmark.model.SimpleFlut;
 import org.neo4j.graphdb.GraphDatabaseService;
 import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.index.Index;
@@ -21,5 +22,9 @@ public class BenchmarkService {
     public Flut getFlut(BigInteger id) {
         Node flut = idIndex.get("id", id).getSingle();
         return new Flut(flut);
+    }
+
+    public void saveFlut(SimpleFlut flut) {
+
     }
 }

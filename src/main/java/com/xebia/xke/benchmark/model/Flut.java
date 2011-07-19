@@ -11,6 +11,15 @@ public class Flut extends DelegatingNodeObject{
         super(flut);
     }
 
+    public Flut(Node node, SimpleFlut simpleFlut) {
+        super(node);
+        setId(simpleFlut.getId());
+        setIntNumber(simpleFlut.getIntNumber());
+        setLongStringAttribute(simpleFlut.getLongStringAttribute());
+        setShortStringAttribute(simpleFlut.getShortStringAttribute());
+        setTrueOrFalse(simpleFlut.isTrueOrFalse());
+    }
+
     public BigInteger getId() {
         return (BigInteger) getNode().getProperty("id");
     }
