@@ -64,7 +64,7 @@
                     <installArtifacts>true</installArtifacts>
                     <programs>
                         <program>
-                            <mainClass>StreamParser</mainClass>
+                            <mainClass>com.xebia.xke.benchmark.StreamParser</mainClass>
                             <name>importer</name>
                         </program>
                     </programs>

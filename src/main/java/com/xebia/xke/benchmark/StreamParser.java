@@ -1,3 +1,5 @@
+package com.xebia.xke.benchmark;
+
 import org.neo4j.graphdb.index.BatchInserterIndex;
 import org.neo4j.index.impl.lucene.LuceneBatchInserterIndexProvider;
 import org.neo4j.kernel.impl.batchinsert.BatchInserterImpl;
@@ -14,7 +16,7 @@ public class StreamParser {
         BatchInserterIndex nodeIdIndex = luceneBatchInserterIndexProvider.nodeIndex("NodeIdIndex", config);
 
         FileInputStream stream = new FileInputStream(new File("/home/ubuntu/benchmark/data.json"));
-//        InputStream stream = StreamParser.class.getResourceAsStream("/data.json");
+//        InputStream stream = com.xebia.xke.benchmark.StreamParser.class.getResourceAsStream("/data.json");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
         String line = null;
