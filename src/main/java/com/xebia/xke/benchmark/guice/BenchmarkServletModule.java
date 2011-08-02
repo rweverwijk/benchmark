@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class BenchmarkServletModule extends ServletModule {
     protected void configureServlets() {
-        EmbeddedGraphDatabase database = new EmbeddedGraphDatabase("/tmp/benchmark/neo");
+        EmbeddedGraphDatabase database = new EmbeddedGraphDatabase("/home/ubuntu/benchmark/neo");
         bind(GraphDatabaseService.class).toInstance(database);
         bind(FlutResource.class);
 

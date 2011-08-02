@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class StreamParser {
     public static void main(String[] args) throws IOException {
-        BatchInserterImpl batchInserter = new BatchInserterImpl("/tmp/benchmark/neo");
+        BatchInserterImpl batchInserter = new BatchInserterImpl("/home/ubuntu/benchmark/neo");
         LuceneBatchInserterIndexProvider luceneBatchInserterIndexProvider = new LuceneBatchInserterIndexProvider(batchInserter);
         HashMap<String, String> config = new HashMap<String, String>();
         config.put("type", "exact");
