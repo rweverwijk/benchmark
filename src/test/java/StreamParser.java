@@ -13,7 +13,7 @@ public class StreamParser {
         config.put("type", "exact");
         BatchInserterIndex nodeIdIndex = luceneBatchInserterIndexProvider.nodeIndex("NodeIdIndex", config);
 
-        FileInputStream stream = new FileInputStream(new File("/home/ubuntu/benchmark/scr/test/resources/data.json"));
+        FileInputStream stream = new FileInputStream(new File("/home/ubuntu/benchmark/data.json"));
 //        InputStream stream = StreamParser.class.getResourceAsStream("/data.json");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
