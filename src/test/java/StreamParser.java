@@ -24,24 +24,28 @@ public class StreamParser {
         int rows = 0;
         while ((line = reader.readLine()) != null) {
             rows++;
-            StringTokenizer tokenizer = new StringTokenizer(line.substring(1, line.length() - 1), ",");
-            if (tokenizer.countTokens() == 5) {
-                Long intNumber = new Long(getTokenValue(tokenizer.nextToken()));
-                boolean trueOrFalse = getTokenValue(tokenizer.nextToken()).equals("true") ? true : false;
-                String longStringAttribute = getTokenValue(tokenizer.nextToken());
-                Long id = new Long(getTokenValue(tokenizer.nextToken()));
-                String shortStringAttribute = getTokenValue(tokenizer.nextToken());
-                long nodeId = batchInserter.createNode(createHashMap(intNumber, trueOrFalse, longStringAttribute, id, shortStringAttribute));
+            String[] lineArgs = line.substring(1, line.length() - 1).split(", \"");
+            if (lineArgs.length == 5) {
+                Long intNumber = new Long(getTokenValue(lineArgs[0]));
+                boolean trueOrFalse = getTokenValue(lineArgs[1]).equals("true") ? true : false;
+                String longStringAttribute = getTokenValue(lineArgs[2]);
+                Long id = new Long(getTokenValue(lineArgs[3]));
+                String shortStringAttribute = getTokenValue(lineArgs[4]);
+
+                Long nodeId = batchInserter.createNode(createHashMap(intNumber, trueOrFalse, longStringAttribute, id, shortStringAttribute));
                 HashMap<String, Object> idMap = new HashMap<String, Object>();
                 idMap.put("id", id);
 
                 nodeIdIndex.add(nodeId, idMap);
+            } else {
+                System.out.println("line not imported: " + line);
             }
-            if (rows % 1000 == 0) {
+            if (rows % 10000 == 0) {
                 System.out.println("number of rows: " + rows);
             }
         }
         batchInserter.shutdown();
+        nodeIdIndex.flush();
         luceneBatchInserterIndexProvider.shutdown();
     }
 

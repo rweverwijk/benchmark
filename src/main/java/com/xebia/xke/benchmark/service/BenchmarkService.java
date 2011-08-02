@@ -9,7 +9,7 @@ import org.neo4j.graphdb.Node;
 import org.neo4j.graphdb.Transaction;
 import org.neo4j.graphdb.index.Index;
 
-import java.math.BigInteger;
+import java.util.NoSuchElementException;
 
 public class BenchmarkService {
     private GraphDatabaseService databaseService;
@@ -21,15 +21,25 @@ public class BenchmarkService {
         idIndex = databaseService.index().forNodes("NodeIdIndex");
     }
 
-    public SimpleFlut getFlut(BigInteger id) {
-        Node node = idIndex.get("id", id).next();
+    public SimpleFlut getFlut(Long id) {
+        Node node = getNode(id);
         return node != null ? new SimpleFlut(new Flut(node)) : null;
+    }
+
+    private Node getNode(Long id) {
+        Node node = null;
+        try {
+        node = idIndex.get("id", id).next();
+        } catch (NoSuchElementException e) {
+
+        }
+        return node;
     }
 
     public void saveFlut(SimpleFlut flut) {
         Transaction transaction = databaseService.beginTx();
         try {
-            Node node = idIndex.get("id", flut.getId()).next();
+            Node node = getNode(flut.getId());
             if (node == null) {
                 node = databaseService.createNode();
             }
