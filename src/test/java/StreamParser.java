@@ -2,12 +2,8 @@ import org.neo4j.graphdb.index.BatchInserterIndex;
 import org.neo4j.index.impl.lucene.LuceneBatchInserterIndexProvider;
 import org.neo4j.kernel.impl.batchinsert.BatchInserterImpl;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.HashMap;
-import java.util.StringTokenizer;
 
 public class StreamParser {
     public static void main(String[] args) throws IOException {
@@ -17,7 +13,8 @@ public class StreamParser {
         config.put("type", "exact");
         BatchInserterIndex nodeIdIndex = luceneBatchInserterIndexProvider.nodeIndex("NodeIdIndex", config);
 
-        InputStream stream = StreamParser.class.getResourceAsStream("/data.json");
+        FileInputStream stream = new FileInputStream(new File("/home/ubuntu/benchmark/scr/test/resources/data.json"));
+//        InputStream stream = StreamParser.class.getResourceAsStream("/data.json");
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
         String line = null;
